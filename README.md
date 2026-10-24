@@ -98,11 +98,15 @@ Les tests unitaires (`StudentControllerTest`) mockent `StudentService` avec Mock
 
 ### Tests Postman
 
+Collection prête à importer : [docs/student-management.postman_collection.json](docs/student-management.postman_collection.json).
+Partir d'une table `student` vide et exécuter dans l'ordre : les 3 POST, puis `all`, `count`, `byYear`, puis les DELETE (sinon `byYear` ne renvoie pas `[[1985,2],[1990,1]]`).
+
 ![POST /students/save](docs/screenshots/postman-save.png)
 ![GET /students/all](docs/screenshots/postman-all.png)
 ![GET /students/count](docs/screenshots/postman-count.png)
 ![GET /students/byYear](docs/screenshots/postman-byyear.png)
-![DELETE /students/delete/{id}](docs/screenshots/postman-delete.png)
+![DELETE /students/delete/1 (204)](docs/screenshots/postman-delete.png)
+![DELETE /students/delete/999 (404)](docs/screenshots/postman-delete-404.png)
 
 ### Tests JUnit
 

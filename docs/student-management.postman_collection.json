@@ -1,0 +1,42 @@
+{
+  "info": {
+    "name": "Student Management API (TP 6)",
+    "description": "Ordre d'exécution : 3 POST, puis all, count, byYear, puis les DELETE. Partir d'une table student vide pour avoir les ids 1, 2, 3.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{ "key": "baseUrl", "value": "http://localhost:8080" }],
+  "item": [
+    {
+      "name": "1. POST save - LACHGAR (1985)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\"nom\":\"LACHGAR\",\"prenom\":\"Mohamed\",\"dateNaissance\":\"1985-09-01\"}" },
+        "url": "{{baseUrl}}/students/save"
+      }
+    },
+    {
+      "name": "2. POST save - ALAMI (1985)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\"nom\":\"ALAMI\",\"prenom\":\"Sara\",\"dateNaissance\":\"1985-03-15\"}" },
+        "url": "{{baseUrl}}/students/save"
+      }
+    },
+    {
+      "name": "3. POST save - BENNANI (1990)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\"nom\":\"BENNANI\",\"prenom\":\"Youssef\",\"dateNaissance\":\"1990-06-20\"}" },
+        "url": "{{baseUrl}}/students/save"
+      }
+    },
+    { "name": "4. GET all", "request": { "method": "GET", "url": "{{baseUrl}}/students/all" } },
+    { "name": "5. GET count", "request": { "method": "GET", "url": "{{baseUrl}}/students/count" } },
+    { "name": "6. GET byYear", "request": { "method": "GET", "url": "{{baseUrl}}/students/byYear" } },
+    { "name": "7. DELETE id 1 (204)", "request": { "method": "DELETE", "url": "{{baseUrl}}/students/delete/1" } },
+    { "name": "8. DELETE id 999 (404)", "request": { "method": "DELETE", "url": "{{baseUrl}}/students/delete/999" } }
+  ]
+}
